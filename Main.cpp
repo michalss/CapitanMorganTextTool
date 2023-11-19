@@ -8,8 +8,6 @@
 #include "StringHelpers.h"
 
 
-
-
 void Unpack(const char* binary_filename, const char* output_text_filename)
 {
 	std::cout << "Start reading the input file!" << std::endl;
@@ -23,8 +21,6 @@ void Unpack(const char* binary_filename, const char* output_text_filename)
 	}
 	outputfile.close();
 }
-
-
 
 void Pack(const char* text_filename)
 {
@@ -50,11 +46,6 @@ void PrintHelp() {
 }
 
 int main(int argc, char* argv[]) {
-	const char* SaveFile = "D:\\Private\\Projects\\Cplusplus\\TOOLS\\CapitanMorganTextTool\\x64\\Debug\\en-GBTextCommon.dat.txt";*/
-
-	//for (int i = 0; i < argc; i++)
-	//	std::cout << "Argument:[" << i << "] = "
-	//	<< argv[i] << std::endl;
 
 	if (argv[1] != nullptr) {
 		// unpack
@@ -104,30 +95,5 @@ int main(int argc, char* argv[]) {
 		std::cout << "Not any option was selected" << std::endl;
 		return 1;
 	}
-
-
-	//if (argv[1] != nullptr) {
-	//	binary_file = argv[1];
-	//}
-	//else {
-	//	std::cout << "error opening input file!" << std::endl;
-	//	return 1;
-	//}
-
-	//if (std::filesystem::exists(output)) {
-	//	std::filesystem::remove(output);
-	//}
-
-	//std::ofstream outputfile(output);
-	//if (!outputfile) {
-	//	std::cout << "error opening output file!" << std::endl;
-	//	return 1;
-	//}
-
-
-
-	//Unpack(binary_file, outputFile);
-
-	//Pack(SaveFile);
 }
 

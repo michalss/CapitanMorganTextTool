@@ -91,7 +91,7 @@ void CapitanMorganText::WriteData(const char* filename)
 	//write LSTR Text Header
 	header.entryHeader.LSTRTableSize = offset;
 	m_writer.WriteFixedLengthString(header.entryHeader.Magic);
-	m_writer.WriteInt32(header.entryHeader.LSTRTableSize); //write size of text this is only temporary
+	m_writer.WriteInt32(header.entryHeader.LSTRTableSize);
 
 	//write LSRT entries
 	for (Entry entry : new_entries) {

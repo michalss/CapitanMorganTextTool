@@ -42,10 +42,6 @@ public:
 	std::vector<Entry> entries{};
 	void ReadData(const char* filename);
 	void WriteData(const char* filename);
-
-	//private:
-	//	BinaryReader* m_reader;
-	//	BinaryWriter* m_writer;
 };
 
 
