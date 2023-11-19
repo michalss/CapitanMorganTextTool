@@ -1,0 +1,37 @@
+//------------------------------------------------
+//--- 010 Editor v8.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+typedef struct{
+    char Magic[];
+    uint32 Version;
+    char Filename[];
+    uint32 NumOfEntries;
+    uint32 LKEYTableStart;
+    uint64 LSTRTableStart;
+    //uint32 Unknown;
+    char LKEYMagic[4];
+    uint32 LKEYTableSize;
+} HEADER;
+
+
+typedef struct{
+    uint32 Id;
+    uint32 Offset;
+    local uint32 pos = FTell();
+    FSeek(startPos + Offset);
+    char LString[];
+    FSeek(pos);
+} LKEY_ENTRY;
+
+HEADER hdr;
+local uint32 startPos = hdr.LSTRTableStart;
+LKEY_ENTRY lkey[hdr.NumOfEntries]<optimize=false>;
