@@ -7,6 +7,9 @@ void CapitanMorganText::ReadData(const char* filename)
 	header.Magic = m_reader->ReadNullTerminatedString();
 	header.Version = m_reader->ReadInt32();
 	header.FileName = m_reader->ReadNullTerminatedString();
+	if (header.FileName != "en-GBTextCommon") {
+		m_reader->Skip(1);
+	}
 	header.NumOfEntries = m_reader->ReadUint32();
 	header.LKEYTableStart = m_reader->ReadUint32();
 	header.LSTRTableStart = m_reader->ReadUint64();
@@ -50,6 +53,9 @@ void CapitanMorganText::WriteData(const char* filename)
 	m_writer.WriteNullTerminatedString(this->header.Magic);
 	m_writer.WriteUint32(this->header.Version);
 	m_writer.WriteNullTerminatedString(this->header.FileName);
+	if (header.FileName != "en-GBTextCommon") {
+		m_writer.WriteNullBytes(1);
+	}
 	m_writer.WriteUint32(this->header.NumOfEntries);
 	m_writer.WriteUint32(this->header.LKEYTableStart);
 	m_writer.WriteUint64(this->header.LSTRTableStart);

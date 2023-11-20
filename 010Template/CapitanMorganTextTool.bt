@@ -10,14 +10,19 @@
 //  ID Bytes: 
 //   History: 
 //------------------------------------------------
+
+
 typedef struct{
     char Magic[];
     uint32 Version;
     char Filename[];
+    if (Filename != "en-GBTextCommon"){
+       byte junk;
+    }
     uint32 NumOfEntries;
     uint32 LKEYTableStart;
-    uint64 LSTRTableStart;
-    //uint32 Unknown;
+    uint32 LSTRTableStart;
+    uint32 Unknown;
     char LKEYMagic[4];
     uint32 LKEYTableSize;
 } HEADER;
